@@ -6,7 +6,7 @@ module.exports = {
     admin: ["@babel/polyfill", "./src/pages/admin.tsx"]
   },
   output: {
-    path: path.join(__dirname, "src/bff/static"),
+    path: path.join(__dirname, "src/bff/static/js"),
     filename: "[name].bundle.js"
   },
   resolve: {
