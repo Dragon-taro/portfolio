@@ -4,6 +4,6 @@ RUN apk update
 
 WORKDIR /var/www/server
 
-COPY ./build/server ./server
+COPY ./server ./server
 
 CMD ["./server"]
