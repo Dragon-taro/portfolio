@@ -24,21 +24,33 @@ const Home: React.FunctionComponent = () => (
     <section className={styles.wrapper}>
       <h2 className={styles.h2}>LIKES</h2>
       <div className={styles.linkCardWrapper}>
-        <LikeCard title="PRGRAMING" buttonContent="Go To GitHub">
+        <LikeCard
+          title="PRGRAMING"
+          buttonContent="Go To GitHub"
+          className={styles.linkCard}
+        >
           <ul>
             <li>Frontend(react, redux...)</li>
             <li>Backend(golang, node, rails...)</li>
             <li>Infla(docker, nginx...)</li>
           </ul>
         </LikeCard>
-        <LikeCard title="ALCOHOL" buttonContent="Drinking With Me">
+        <LikeCard
+          title="ALCOHOL"
+          buttonContent="Drinking With Me"
+          className={styles.linkCard}
+        >
           <ul>
             <li>Beer(Premium Molts, First Press)</li>
             <li>Whisky(Scotch, Highball)</li>
             <li>Japanese Sake</li>
           </ul>
         </LikeCard>
-        <LikeCard title="GIRLS" buttonContent="Send Message">
+        <LikeCard
+          title="GIRLS"
+          buttonContent="Send Message"
+          className={styles.linkCard}
+        >
           <ul>
             <li>Cute</li>
             <li>Like talking</li>

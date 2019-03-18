@@ -15,3 +15,10 @@
   display: flex;
   justify-content: space-between;
 }
+.linkCard {
+  width: 290px;
+}
+
+.linkCardWrapper ul {
+  padding-left: 26px;
+}

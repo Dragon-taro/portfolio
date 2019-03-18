@@ -13,3 +13,7 @@
   font-weight: normal;
   text-align: left;
 }
+
+.table td {
+  width: 75%;
+}

@@ -6,10 +6,16 @@ import Button from "../../parts/Button";
 export interface ILikeCard {
   title: string;
   buttonContent?: string;
+  className?: string;
 }
 
-const LikeCard: React.SFC<ILikeCard> = ({ title, buttonContent, children }) => (
-  <Card>
+const LikeCard: React.SFC<ILikeCard> = ({
+  title,
+  buttonContent,
+  className,
+  children
+}) => (
+  <Card className={className}>
     <h3 className={styles.h3}>{title}</h3>
     {children}
     <div className={styles.buttonZone}>

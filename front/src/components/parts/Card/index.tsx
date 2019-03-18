@@ -1,8 +1,12 @@
 import * as React from "react";
 import * as styles from "./style.css";
 
-const Card: React.SFC = ({ children }) => (
-  <div className={styles.card}>{children}</div>
+interface ICard {
+  className?: string;
+}
+
+const Card: React.SFC<ICard> = ({ className, children }) => (
+  <div className={[styles.card, className].join(" ")}>{children}</div>
 );
 
 export default Card;
