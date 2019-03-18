@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Card from "../components/parts/Card";
+import TopContent from "../components/blocks/TopContent";
 
 const App: React.FunctionComponent = () => (
   <div>
-    <Card>カード</Card>
+    <TopContent />
   </div>
 );
 

@@ -1,0 +1,56 @@
+.topContent {
+  padding: 150px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.topContent:after {
+  content: "";
+  width: 150%;
+  height: 500px;
+  background-color: #fafafa;
+  display: block;
+  position: absolute;
+  z-index: -1;
+  transform: rotate(-25deg);
+  top: 250px;
+}
+
+.imgBox {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: #ddd;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 100px;
+  color: #555;
+}
+
+@media screen and (max-width: 530px) {
+  .profile {
+    width: 100%;
+    flex-direction: row;
+    margin-left: 0;
+    margin-top: 60px;
+  }
+}
+.profile .name {
+  margin: 16px 0;
+}
+
+.profile h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.profile p {
+  margin: 0;
+}
