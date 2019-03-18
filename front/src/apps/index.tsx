@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Button from "../components/parts/Button";
+import Card from "../components/parts/Card";
 
 const App: React.FunctionComponent = () => (
   <div>
-    <Button>ボタン</Button>
+    <Card>カード</Card>
   </div>
 );
 
