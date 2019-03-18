@@ -2,8 +2,8 @@ const path = require("path");
 
 module.exports = {
   entry: {
-    index: ["@babel/polyfill", "./src/pages/index.tsx"],
-    admin: ["@babel/polyfill", "./src/pages/admin.tsx"]
+    index: ["@babel/polyfill", "./src/apps/index.tsx"],
+    admin: ["@babel/polyfill", "./src/apps/admin.tsx"]
   },
   output: {
     path: path.join(__dirname, "src/bff/static/js"),
