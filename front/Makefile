@@ -1,6 +1,3 @@
-# bff.tar.gz:
-# 	tar -zcvf bff.tar.gz bff
-
 build:
 	docker build -t bff .
 
