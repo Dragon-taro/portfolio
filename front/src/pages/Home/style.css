@@ -7,6 +7,11 @@
   padding: 60px;
 }
 
-h2 {
+.h2 {
   color: #848484;
+}
+
+.linkCardWrapper {
+  display: flex;
+  justify-content: space-between;
 }

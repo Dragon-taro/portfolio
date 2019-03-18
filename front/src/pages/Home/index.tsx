@@ -2,6 +2,7 @@ import * as React from "react";
 import * as styles from "./style.css";
 import TopContent from "../../components/blocks/TopContent";
 import Table, { ITable } from "../../components/parts/Table";
+import LikeCard from "../../components/blocks/LikeCard";
 
 const items: ITable = {
   items: [
@@ -17,8 +18,34 @@ const Home: React.FunctionComponent = () => (
   <main>
     <TopContent />
     <section className={styles.wrapper}>
-      <h2>HISTORY</h2>
+      <h2 className={styles.h2}>HISTORY</h2>
       <Table {...items} />
+    </section>
+    <section className={styles.wrapper}>
+      <h2 className={styles.h2}>LIKES</h2>
+      <div className={styles.linkCardWrapper}>
+        <LikeCard title="PRGRAMING" buttonContent="Go To GitHub">
+          <ul>
+            <li>Frontend(react, redux...)</li>
+            <li>Backend(golang, node, rails...)</li>
+            <li>Infla(docker, nginx...)</li>
+          </ul>
+        </LikeCard>
+        <LikeCard title="ALCOHOL" buttonContent="Drinking With Me">
+          <ul>
+            <li>Beer(Premium Molts, First Press)</li>
+            <li>Whisky(Scotch, Highball)</li>
+            <li>Japanese Sake</li>
+          </ul>
+        </LikeCard>
+        <LikeCard title="GIRLS" buttonContent="Send Message">
+          <ul>
+            <li>Cute</li>
+            <li>Like talking</li>
+            <li>Frinedly</li>
+          </ul>
+        </LikeCard>
+      </div>
     </section>
   </main>
 );
