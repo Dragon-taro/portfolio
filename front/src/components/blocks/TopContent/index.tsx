@@ -3,7 +3,7 @@ import * as styles from "./style.css";
 import SNSLinks from "../../parts/SNSLinks";
 
 const TopContent: React.SFC = () => (
-  <div className={styles.topContent}>
+  <section className={styles.topContent}>
     <div className={styles.imgBox}>
       <img src="" alt="" />
     </div>
@@ -18,7 +18,7 @@ const TopContent: React.SFC = () => (
         <SNSLinks />
       </div>
     </div>
-  </div>
+  </section>
 );
 
 export default TopContent;
