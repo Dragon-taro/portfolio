@@ -5,7 +5,8 @@
 .table tr {
   display: flex;
   border-bottom: 1px solid #ddd;
-  padding: 10px;
+  padding: 10px 5%;
+  flex-wrap: wrap;
 }
 
 .table th {
@@ -15,5 +16,5 @@
 }
 
 .table td {
-  width: 75%;
+  width: 70%;
 }

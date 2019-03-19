@@ -18,10 +18,6 @@ const Home: React.FunctionComponent = () => (
   <main>
     <TopContent />
     <section className={styles.wrapper}>
-      <h2 className={styles.h2}>HISTORY</h2>
-      <Table {...items} />
-    </section>
-    <section className={styles.wrapper}>
       <h2 className={styles.h2}>LIKES</h2>
       <div className={styles.linkCardWrapper}>
         <LikeCard
@@ -57,7 +53,13 @@ const Home: React.FunctionComponent = () => (
             <li>Frinedly</li>
           </ul>
         </LikeCard>
+        <div className={styles.linkCard} role="none" />
       </div>
+    </section>
+
+    <section className={styles.wrapper}>
+      <h2 className={styles.h2}>HISTORY</h2>
+      <Table {...items} />
     </section>
   </main>
 );
