@@ -1,10 +1,12 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import TopContent from "../components/blocks/TopContent";
+import Home from "../pages/Home";
+import Footer from "../components/blocks/Footer";
 
 const App: React.FunctionComponent = () => (
   <div>
-    <TopContent />
+    <Home />
+    <Footer />
   </div>
 );
 
