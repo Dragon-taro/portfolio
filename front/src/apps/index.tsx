@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Contact from "../pages/Contact";
+import ContactContainer from "../pages/Contact/container";
 import Footer from "../components/blocks/Footer";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
@@ -11,7 +11,7 @@ const store = createStore(rootReducer);
 const App: React.FunctionComponent = () => (
   <Provider store={store}>
     <React.Fragment>
-      <Contact />
+      <ContactContainer />
       <Footer />
     </React.Fragment>
   </Provider>
