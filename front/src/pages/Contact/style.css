@@ -11,3 +11,14 @@
 .field {
   margin: 1rem 0;
 }
+
+.button {
+  width: 90%;
+  max-width: 200px;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.button button {
+  width: 100%;
+}

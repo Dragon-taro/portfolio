@@ -7,6 +7,7 @@ import Input from "../../components/parts/Form/Input";
 import { ISetContact } from "../../types/contact";
 import Select from "../../components/parts/Form/Select";
 import Textarea from "../../components/parts/Form/TextArea";
+import Button from "../../components/parts/Button";
 
 // valueはenumの方が良さそう
 const selectOptions = [
@@ -68,6 +69,9 @@ export default class Contact extends React.Component<Props> {
           name="details"
           label="お問い合わせ内容"
         />
+        <div className={styles.button}>
+          <Button>送信</Button>
+        </div>
       </div>
     );
   }
