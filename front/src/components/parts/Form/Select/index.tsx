@@ -10,20 +10,18 @@ const Select: React.FunctionComponent<ISelectFiled<HTMLSelectElement>> = ({
   label,
   ...props
 }) => (
-  <React.Fragment>
-    <label htmlFor={forId}>{label}</label>
-    <select
-      id={forId}
-      {...props}
-      className={[styles.select, className].join(" ")}
-    >
+  <div className={className}>
+    <label className={styles.label} htmlFor={forId}>
+      {label}
+    </label>
+    <select id={forId} {...props} className={styles.select}>
       {options.map((option, index) => (
         <option key={index} value={option.value}>
           {option.label}
         </option>
       ))}
     </select>
-  </React.Fragment>
+  </div>
 );
 
 export default Select;

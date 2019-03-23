@@ -36,30 +36,36 @@ export default class Contact extends React.Component<Props> {
     } = this.props;
     return (
       <div className={styles.contact}>
-        <h1>お問い合わせ</h1>
+        <h1 className={styles.title}>Contact</h1>
         <Input
           value={name}
+          className={styles.field}
           onChange={e => this.handleChange(e)}
           name="name"
           label="名前"
         />
+        {/* ここのコンポーネントを切り出して各媒体で表示を切り替える */}
         <Select
           value={type}
+          className={styles.field}
           onChange={e => this.handleChange(e)}
           name="type"
           options={selectOptions}
           label="連絡方法"
         />
         <Input
-          value={name}
+          value={email}
+          className={styles.field}
           onChange={e => this.handleChange(e)}
-          name="name"
+          name="email"
           label="連絡先"
         />
+        {/* お問い合わせ目的も入れたい */}
         <Textarea
-          value={name}
+          value={details}
+          className={styles.field}
           onChange={e => this.handleChange(e)}
-          name="name"
+          name="details"
           label="お問い合わせ内容"
         />
       </div>

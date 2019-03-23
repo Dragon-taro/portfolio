@@ -9,14 +9,12 @@ const Textarea: React.FunctionComponent<IFormElement<HTMLTextAreaElement>> = ({
   label,
   ...props
 }) => (
-  <React.Fragment>
-    <label htmlFor={forId}>{label}</label>
-    <textarea
-      id={forId}
-      {...props}
-      className={[styles.textarea, className].join(" ")}
-    />
-  </React.Fragment>
+  <div className={className}>
+    <label className={styles.label} htmlFor={forId}>
+      {label}
+    </label>
+    <textarea id={forId} {...props} className={styles.textarea} />
+  </div>
 );
 
 export default Textarea;

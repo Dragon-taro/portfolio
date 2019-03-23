@@ -9,15 +9,12 @@ const Input: React.FunctionComponent<IFormElement<HTMLInputElement>> = ({
   label,
   ...props
 }) => (
-  <React.Fragment>
-    <label htmlFor={forId}>{label}</label>
-    <input
-      id={forId}
-      type="text"
-      {...props}
-      className={[styles.input, className].join(" ")}
-    />
-  </React.Fragment>
+  <div className={className}>
+    <label className={styles.label} htmlFor={forId}>
+      {label}
+    </label>
+    <input id={forId} type="text" {...props} className={styles.input} />
+  </div>
 );
 
 export default Input;

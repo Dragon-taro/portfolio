@@ -1,2 +1,13 @@
 .contact {
+  padding: 90px 0;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.title {
+  color: #848484;
+}
+
+.field {
+  margin: 1rem 0;
 }
