@@ -1,15 +1,21 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"github.com/Dragon-taro/portfolio/server/controller"
+	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, World!!!!!!")
-}
-
 func main() {
-	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080", nil)
+	e := echo.New()
+	e.Use(middleware.Logger())
+	api := e.Group("/api")
+
+	// contact
+	contactController := new(controller.ContactController)
+	api.POST("/contact", func(c echo.Context) error {
+		return contactController.Index(c)
+	})
+
+	e.Logger.Fatal(e.Start(":8080"))
 }
