@@ -16,7 +16,10 @@ func (controller *ContactController) Index(c echo.Context) error {
 	contact := new(model.Contact)
 	c.Bind(contact)
 
-	message := contact.NotifySlack()
+	resp, err := contact.NotifySlack()
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err)
+	}
 
-	return c.JSON(http.StatusOK, message)
+	return c.JSON(http.StatusOK, resp)
 }

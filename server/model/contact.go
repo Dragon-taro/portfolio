@@ -1,5 +1,11 @@
 package model
 
+import (
+	"encoding/json"
+
+	"github.com/Dragon-taro/portfolio/server/utils"
+)
+
 // Contact ...
 type Contact struct {
 	Name           string `json:"name"`
@@ -8,8 +14,13 @@ type Contact struct {
 	Details        string `json:"details"`
 }
 
-// Message ...
+// Message ... あまりに適当すぎる。。
 type Message struct {
+	Attachments []Attachment `json:"attachments"`
+}
+
+// Attachment ...
+type Attachment struct {
 	Pretext string `json:"pretext"`
 	Title   string `json:"title"`
 	Color   string `json:"color"`
@@ -17,20 +28,28 @@ type Message struct {
 }
 
 // NotifySlack ...
-func (contact *Contact) NotifySlack() Message {
+func (contact *Contact) NotifySlack() (string, error) {
 	message := contact.formatMessage()
+	jsonBytes, _ := json.Marshal(message)
 
-	// ここでslackの送信処理
+	resp, err := utils.SlackNotifier(jsonBytes)
+	if err != nil {
+		return "", err
+	}
 
-	return message
+	return resp, nil
 }
 
 func (contact *Contact) formatMessage() Message {
 	message := Message{
-		Pretext: contact.ContactAddress + "さんからのお問い合わせです。",
-		Title:   contact.ContactType,
-		Color:   "good",
-		Text:    contact.Details,
+		Attachments: []Attachment{
+			Attachment{
+				Pretext: contact.ContactAddress + "さんからのお問い合わせです。",
+				Title:   contact.ContactType,
+				Color:   "good",
+				Text:    contact.Details,
+			},
+		},
 	}
 	return message
 }
