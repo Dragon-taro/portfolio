@@ -1,16 +1,13 @@
-export interface IFormFiled<T> {
+export interface IFormElement<T> {
   value: string;
   name: string;
   className?: string;
+  forId?: string;
+  label?: string;
   onChange(e: React.ChangeEvent<T>): void;
 }
 
-export interface ITextFiled<T> extends IFormFiled<T> {
-  forId?: string;
-  label?: string;
-}
-
-export interface ISelectFiled<T> extends IFormFiled<T> {
+export interface ISelectFiled<T> extends IFormElement<T> {
   options: ISelectOptions[];
 }
 
