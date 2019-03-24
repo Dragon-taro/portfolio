@@ -31,9 +31,14 @@ export default class Contact extends React.Component<Props> {
     setContact(changeValue);
   }
 
+  handleSubmit() {
+    const { postContact, contact } = this.props;
+    postContact(contact);
+  }
+
   render() {
     const {
-      contact: { name, email, type, details }
+      contact: { name, contactAddress, contactType, details }
     } = this.props;
     return (
       <div className={styles.contact}>
@@ -47,18 +52,18 @@ export default class Contact extends React.Component<Props> {
         />
         {/* ここのコンポーネントを切り出して各媒体で表示を切り替える */}
         <Select
-          value={type}
+          value={contactType}
           className={styles.field}
           onChange={e => this.handleChange(e)}
-          name="type"
+          name="contactType"
           options={selectOptions}
           label="連絡方法"
         />
         <Input
-          value={email}
+          value={contactAddress}
           className={styles.field}
           onChange={e => this.handleChange(e)}
-          name="email"
+          name="contactAddress"
           label="連絡先"
         />
         {/* お問い合わせ目的も入れたい */}
@@ -70,7 +75,7 @@ export default class Contact extends React.Component<Props> {
           label="お問い合わせ内容"
         />
         <div className={styles.button}>
-          <Button>送信</Button>
+          <Button onClick={() => this.handleSubmit()}>送信</Button>
         </div>
       </div>
     );

@@ -4,8 +4,8 @@ import { SET_CONTACT } from "./constants";
 
 const initState: IContact = {
   name: "",
-  email: "",
-  type: "",
+  contactAddress: "",
+  contactType: "",
   details: ""
 };
 

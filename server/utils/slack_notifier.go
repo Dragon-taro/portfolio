@@ -1,15 +1,16 @@
 package utils
 
 import (
+	"bytes"
 	"io/ioutil"
 	"net/http"
-	"net/url"
 )
 
 // SlackNotifier ...
 func SlackNotifier(jsonBytes []byte) (string, error) {
 	// 一旦postURLはscret.goに
-	resp, err := http.PostForm(postURL, url.Values{"payload": {string(jsonBytes)}})
+	resp, err := http.Post(postURL, "application/json", bytes.NewBuffer(jsonBytes))
+
 	if err != nil {
 		return "", err
 	}
