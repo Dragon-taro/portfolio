@@ -2,7 +2,6 @@ package utils
 
 import (
 	"bytes"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -10,7 +9,6 @@ import (
 // SlackNotifier ...
 func SlackNotifier(jsonBytes []byte) (string, error) {
 	// 一旦postURLはscret.goに
-	fmt.Println(postURL)
 	resp, err := http.Post(postURL, "application/json", bytes.NewBuffer(jsonBytes))
 
 	if err != nil {

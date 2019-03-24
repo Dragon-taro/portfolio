@@ -11,7 +11,10 @@ export const Post = <Req, Res>(
   const { path, body } = params;
   return fetch(path, {
     method: "POST",
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
+    headers: {
+      "Content-Type": "application/json; charset=utf-8"
+    }
   })
     .then<Res>(res => {
       if (!res.ok) throw new Error(res.statusText);
