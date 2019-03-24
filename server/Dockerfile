@@ -6,4 +6,4 @@ WORKDIR /var/www/server
 
 COPY ./server ./server
 
-CMD ["./server"]
+CMD ["./server"]

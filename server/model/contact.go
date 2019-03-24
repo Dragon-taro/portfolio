@@ -9,8 +9,8 @@ import (
 // Contact ...
 type Contact struct {
 	Name           string `json:"name"`
-	ContactAddress string `json:"contact_address"`
-	ContactType    string `json:"contact_type"`
+	ContactAddress string `json:"contactAddress"`
+	ContactType    string `json:"contactType"`
 	Details        string `json:"details"`
 }
 
