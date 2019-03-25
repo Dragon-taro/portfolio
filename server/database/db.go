@@ -12,7 +12,6 @@ func DBConnect() (*gorm.DB, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer db.Close()
 
 	return db, nil
 }

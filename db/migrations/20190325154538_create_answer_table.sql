@@ -4,9 +4,11 @@
 CREATE TABLE IF NOT EXISTS `answers` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `text` TEXT NOT NULL,
+    `questions_id` INT NOT NULL,
     `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `updated_at` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`questions_id`) REFERENCES questions(`id`)
 ) ENGINE = InnoDB;
 
 -- +goose Down

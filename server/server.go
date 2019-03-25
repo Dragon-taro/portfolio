@@ -13,10 +13,11 @@ func main() {
 	e := echo.New()
 	e.Use(middleware.Logger())
 	api := e.Group("/api")
-	_, err := database.DBConnect()
+	db, err := database.DBConnect()
 	if err != nil {
 		log.Println(err)
 	}
+	defer db.Close()
 
 	// contact
 	contactController := new(controller.ContactController)
@@ -24,5 +25,10 @@ func main() {
 		return contactController.Index(c)
 	})
 
+	// questions
+	questionController := controller.NewQuestionController(db)
+	api.GET("/questions", func(c echo.Context) error {
+		return questionController.Index(c)
+	})
 	e.Logger.Fatal(e.Start(":8080"))
 }
