@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -37,12 +36,12 @@ func (q *QuestionController) Index(c echo.Context) error {
 func (q *QuestionController) Create(c echo.Context) error {
 	question := new(model.Question)
 	c.Bind(question)
-	fmt.Println(question)
+
 	if err := model.CreateQuestion(q.DB, question); err != nil {
 		return c.JSON(http.StatusInternalServerError, err)
 	}
 
-	return c.JSON(http.StatusOK, question)
+	return c.JSON(http.StatusCreated, "created")
 }
 
 // Show ...
