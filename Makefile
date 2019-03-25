@@ -14,3 +14,6 @@ logs:
 
 ps:
 	@docker-compose ps
+
+mysql:
+	@docker-compose exec mysql mysql -uuser -ppass -Ddb

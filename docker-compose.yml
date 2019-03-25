@@ -21,15 +21,11 @@ services:
       - private-subnet
   api:
     build: ./server/
-    ports:
-      - "8080:8080"
     networks:
       - public-subnet
       - private-subnet
   front:
     build: ./front/
-    ports:
-      - "3000:3000"
     volumes:
       - ./front/src/bff/:/var/www/bff
     networks:
