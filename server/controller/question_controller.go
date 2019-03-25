@@ -1,7 +1,9 @@
 package controller
 
 import (
+	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/Dragon-taro/portfolio/server/model"
 	"github.com/jinzhu/gorm"
@@ -22,11 +24,38 @@ func NewQuestionController(db *gorm.DB) *QuestionController {
 }
 
 // Index ... resposes of questions array
-func (controller *QuestionController) Index(c echo.Context) error {
-	questions, err := model.AllQuestions(controller.DB)
+func (q *QuestionController) Index(c echo.Context) error {
+	questions, err := model.AllQuestions(q.DB)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err)
 	}
 
 	return c.JSON(http.StatusOK, questions)
+}
+
+// Create ...
+func (q *QuestionController) Create(c echo.Context) error {
+	question := new(model.Question)
+	c.Bind(question)
+	fmt.Println(question)
+	if err := model.CreateQuestion(q.DB, question); err != nil {
+		return c.JSON(http.StatusInternalServerError, err)
+	}
+
+	return c.JSON(http.StatusOK, question)
+}
+
+// Show ...
+func (q *QuestionController) Show(c echo.Context) error {
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err)
+	}
+
+	question, err := model.OneQuestion(q.DB, id)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err)
+	}
+
+	return c.JSON(http.StatusOK, question)
 }
