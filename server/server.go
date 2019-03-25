@@ -30,5 +30,12 @@ func main() {
 	api.GET("/questions", func(c echo.Context) error {
 		return questionController.Index(c)
 	})
+	api.GET("/questions/:id", func(c echo.Context) error {
+		return questionController.Show(c)
+	})
+	api.POST("/questions", func(c echo.Context) error {
+		return questionController.Create(c)
+	})
+
 	e.Logger.Fatal(e.Start(":8080"))
 }
