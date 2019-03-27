@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/Dragon-taro/portfolio/server/model"
+	"github.com/Dragon-taro/portfolio/server/types"
 	"github.com/jinzhu/gorm"
 
 	"github.com/labstack/echo"
@@ -23,7 +24,7 @@ func NewAnswerController(db *gorm.DB) *AnswerController {
 
 // Create ...
 func (a *AnswerController) Create(c echo.Context) error {
-	answer := new(model.Answer)
+	answer := new(types.Answer)
 	c.Bind(answer)
 
 	if err := model.CreateAnswer(a.DB, answer); err != nil {
@@ -35,7 +36,7 @@ func (a *AnswerController) Create(c echo.Context) error {
 
 // Update ...
 func (a *AnswerController) Update(c echo.Context) error {
-	answer := new(model.Answer)
+	answer := new(types.Answer)
 	c.Bind(answer)
 
 	if err := model.UpdateAnswer(a.DB, answer); err != nil {

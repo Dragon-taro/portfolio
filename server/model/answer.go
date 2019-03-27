@@ -1,22 +1,12 @@
 package model
 
 import (
-	"time"
-
+	"github.com/Dragon-taro/portfolio/server/types"
 	"github.com/jinzhu/gorm"
 )
 
-// Answer ...
-type Answer struct {
-	ID         int       `json:"id"`
-	Text       string    `json:"text"`
-	QuestionID int       `json:"questionId"`
-	CreatedAt  time.Time `json:"createdAt"`
-	UpdatedAt  time.Time `json:"updatedAt"`
-}
-
 // CreateAnswer ...
-func CreateAnswer(db *gorm.DB, a *Answer) error {
+func CreateAnswer(db *gorm.DB, a *types.Answer) error {
 	result := db.Create(a)
 	if result.Error != nil {
 		return result.Error
@@ -26,11 +16,27 @@ func CreateAnswer(db *gorm.DB, a *Answer) error {
 }
 
 // UpdateAnswer ... update all columns of a single record
-func UpdateAnswer(db *gorm.DB, a *Answer) error {
+func UpdateAnswer(db *gorm.DB, a *types.Answer) error {
 	result := db.Save(a)
 	if result.Error != nil {
 		return result.Error
 	}
 
 	return nil
+}
+
+// OneAnswer ... return one answer
+func OneAnswer(db *gorm.DB, id int) (*types.Answer, error) {
+	answer := new(types.Answer)
+	result := db.First(&answer, id)
+	err := result.Error
+	if err != nil {
+		if gorm.IsRecordNotFoundError(err) {
+			return nil, nil
+		}
+
+		return nil, err
+	}
+
+	return answer, nil
 }
