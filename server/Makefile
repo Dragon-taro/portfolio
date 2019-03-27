@@ -1,7 +1,7 @@
-server:
+compile:
 	GOOS=linux GOARCH=amd64 go build server.go
 
-build: server
+build: compile
 	docker build -t portfolio-api ./
 	rm ./server
 

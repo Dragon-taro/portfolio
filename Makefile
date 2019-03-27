@@ -1,10 +1,10 @@
 build:
-	@cd ./server && GOOS=linux GOARCH=amd64 go build server.go
-	@docker-compose build
-	@rm ./server/server
+	cd ./server && GOOS=linux GOARCH=amd64 go build server.go
+	docker-compose build
+	rm ./server/server
 
 up:
-	@docker-compose up -d
+	@docker-compose up
 
 down:
 	@docker-compose down
