@@ -37,5 +37,11 @@ func main() {
 		return questionController.Create(c)
 	})
 
+	// answers
+	answerController := controller.NewAnswerController(db)
+	api.POST("/answers", func(c echo.Context) error {
+		return answerController.Create(c)
+	})
+
 	e.Logger.Fatal(e.Start(":8080"))
 }

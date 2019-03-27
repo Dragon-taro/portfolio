@@ -1,22 +1,13 @@
 package model
 
 import (
-	"time"
-
+	"github.com/Dragon-taro/portfolio/server/types"
 	"github.com/jinzhu/gorm"
 )
 
-// Question ...
-type Question struct {
-	ID        int       `json:"id"`
-	Text      string    `json:"text"`
-	CreatedAt time.Time `json:"createdAt"`
-	UpdatedAt time.Time `json:"updatedAt"`
-}
-
 // AllQuestions ...
-func AllQuestions(db *gorm.DB) (*[]Question, error) {
-	questions := new([]Question)
+func AllQuestions(db *gorm.DB) (*[]types.Question, error) {
+	questions := new([]types.Question)
 	result := db.Find(&questions)
 	if result.Error != nil {
 		return nil, result.Error
@@ -26,8 +17,8 @@ func AllQuestions(db *gorm.DB) (*[]Question, error) {
 }
 
 // OneQuestion ...
-func OneQuestion(db *gorm.DB, id int) (*Question, error) {
-	question := new(Question)
+func OneQuestion(db *gorm.DB, id int) (*types.Question, error) {
+	question := new(types.Question)
 	result := db.First(&question, id)
 	if result.Error != nil {
 		return nil, result.Error
@@ -37,7 +28,7 @@ func OneQuestion(db *gorm.DB, id int) (*Question, error) {
 }
 
 // CreateQuestion ...
-func CreateQuestion(db *gorm.DB, q *Question) error {
+func CreateQuestion(db *gorm.DB, q *types.Question) error {
 	result := db.Create(q)
 	if result.Error != nil {
 		return db.Error

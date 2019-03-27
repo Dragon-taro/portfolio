@@ -5,6 +5,7 @@ import (
 	"strconv"
 
 	"github.com/Dragon-taro/portfolio/server/model"
+	"github.com/Dragon-taro/portfolio/server/types"
 	"github.com/jinzhu/gorm"
 
 	"github.com/labstack/echo"
@@ -34,7 +35,7 @@ func (q *QuestionController) Index(c echo.Context) error {
 
 // Create ...
 func (q *QuestionController) Create(c echo.Context) error {
-	question := new(model.Question)
+	question := new(types.Question)
 	c.Bind(question)
 
 	if err := model.CreateQuestion(q.DB, question); err != nil {
@@ -56,5 +57,15 @@ func (q *QuestionController) Show(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, err)
 	}
 
-	return c.JSON(http.StatusOK, question)
+	answer, err := model.OneAnswer(q.DB, question.ID)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err)
+	}
+
+	questionResp := types.QuestionRespone{
+		Answer:   answer,
+		Question: question,
+	}
+
+	return c.JSON(http.StatusOK, questionResp)
 }
