@@ -10,10 +10,13 @@ down:
 	@docker-compose down
 
 logs:
-	@docker-compose logs
+	@docker-compose logs -f --tail="all" 
 
 ps:
 	@docker-compose ps
 
 mysql:
 	@docker-compose exec mysql mysql -uuser -ppass -Ddb
+
+api:
+	@docker-compose exec api /bin/sh
