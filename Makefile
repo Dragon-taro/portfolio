@@ -4,13 +4,13 @@ build:
 	@rm ./server/server
 
 up:
-	@docker-compose up
+	@docker-compose up -d
 
 down:
 	@docker-compose down
 
 logs:
-	@docker-compose logs
+	@docker-compose logs -f --tail="all" 
 
 ps:
 	@docker-compose ps
