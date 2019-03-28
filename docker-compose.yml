@@ -6,6 +6,9 @@ services:
       - "8000:80"
     networks:
       - public-subnet
+    depends_on:
+      - api
+      - front
   mysql:
     image: mysql
     ports:
@@ -24,6 +27,8 @@ services:
     networks:
       - public-subnet
       - private-subnet
+    depends_on:
+      - mysql
   front:
     build: ./front/
     volumes:

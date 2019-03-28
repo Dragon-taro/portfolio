@@ -4,7 +4,7 @@ build:
 	@rm ./server/server
 
 up:
-	@docker-compose up -d
+	@docker-compose up
 
 down:
 	@docker-compose down
@@ -17,3 +17,6 @@ ps:
 
 mysql:
 	@docker-compose exec mysql mysql -uuser -ppass -Ddb
+
+api:
+	@docker-compose exec api /bin/sh
