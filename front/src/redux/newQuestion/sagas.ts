@@ -1,4 +1,4 @@
-import { fork, takeEvery, call } from "redux-saga/effects";
+import { takeEvery, call } from "redux-saga/effects";
 import { POST_QUESTION } from "./constants";
 import { Action, IPost } from "../../types/utils";
 import { Post, IAPIResponse } from "../api/fetch";
@@ -11,7 +11,6 @@ function postQuestion(params: IPost<IQuestion>) {
 
 function* sagaPostQuestion(action: Action<IQuestion>) {
   const { payload: body } = action;
-  console.log(body);
 
   const params: IPost<IQuestion> = {
     path: "/api/questions",

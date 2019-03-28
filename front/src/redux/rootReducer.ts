@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import { contactReducer } from "./contact/reducer";
-import { questionReducer } from "./question/reducer";
+import { newQuestionReducer } from "./newQuestion/reducer";
 
 const rootReducer = combineReducers({
   contact: contactReducer,
-  question: questionReducer
+  question: newQuestionReducer
 });
 
 export default rootReducer;

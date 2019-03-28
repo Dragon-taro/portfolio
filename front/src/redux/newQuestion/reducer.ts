@@ -6,7 +6,7 @@ const initState: IQuestion = {
   text: ""
 };
 
-export const questionReducer = (
+export const newQuestionReducer = (
   state: IQuestion = initState,
   action: Action<ISetQuestion>
 ): IQuestion => {
