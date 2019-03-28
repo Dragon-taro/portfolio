@@ -1,7 +1,7 @@
 import { takeEvery, call } from "redux-saga/effects";
 import { POST_QUESTION } from "./constants";
-import { Action, IPost } from "../../types/utils";
-import { Post, IAPIResponse } from "../api/fetch";
+import { Action, IPost, IAPIResponse } from "../../types/utils";
+import { Post } from "../api/fetch";
 import { IQuestion } from "../../types/question";
 
 // genericもりもりの関数をcallに渡せへんのだるすぎ
@@ -22,6 +22,6 @@ function* sagaPostQuestion(action: Action<IQuestion>) {
   );
 }
 
-export default function* questionSaga() {
+export default function* newQuestionSaga() {
   yield takeEvery(POST_QUESTION, sagaPostQuestion);
 }

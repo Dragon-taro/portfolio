@@ -4,7 +4,7 @@ import { newQuestionReducer } from "./newQuestion/reducer";
 
 const rootReducer = combineReducers({
   contact: contactReducer,
-  question: newQuestionReducer
+  newQuestion: newQuestionReducer
 });
 
 export default rootReducer;

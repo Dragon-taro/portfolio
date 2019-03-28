@@ -8,3 +8,15 @@ export interface IQuestion {
 export interface ISetQuestion {
   text: string;
 }
+
+export interface IQuestions {
+  questions?: IQuestion[];
+  error?: string;
+  loading: boolean;
+}
+
+export interface IOneQuestion {
+  question?: IQuestion;
+  error?: string;
+  loading: boolean;
+}

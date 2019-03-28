@@ -6,10 +6,10 @@ import { Action } from "../../types/utils";
 
 import NewQuestion from "./presentation";
 import { ISetQuestion, IQuestion } from "../../types/question";
-import { setQuestion, postQuestion } from "../../redux/question/actions";
+import { setQuestion, postQuestion } from "../../redux/newQuestion/actions";
 
 const mapStateToProps = (state: RootState) => ({
-  question: state.question
+  question: state.newQuestion
 });
 
 const mapDispatchToProps = (
