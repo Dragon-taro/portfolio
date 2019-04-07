@@ -8,7 +8,7 @@ import Questoins from "./presentation";
 import { getQuestions } from "../../redux/questions/actions";
 
 const mapStateToProps = (state: RootState) => ({
-  question: state.questions
+  ...state.questions
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action<{}>>) => ({

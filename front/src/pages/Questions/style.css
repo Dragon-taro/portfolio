@@ -1,2 +1,13 @@
-.questions {
+.questions h1 {
+  color: #848484;
+}
+
+.quetionCard {
+  margin: 16px 0;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.quetionCard:hover {
+  transform: scale(1.02, 1.05);
 }

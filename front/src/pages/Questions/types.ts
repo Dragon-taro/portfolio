@@ -1,6 +1,5 @@
 import { IQuestions } from "../../types/question";
 
-export interface Props {
-  questions: IQuestions;
+export interface Props extends IQuestions {
   getQuestions: () => void;
 }

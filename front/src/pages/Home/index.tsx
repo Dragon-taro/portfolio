@@ -3,6 +3,7 @@ import * as styles from "./style.css";
 import TopContent from "../../components/blocks/TopContent";
 import Table, { ITable } from "../../components/parts/Table";
 import LikeCard from "../../components/blocks/LikeCard";
+import OneColmun from "../../components/layouts/OneColmun";
 
 const items: ITable = {
   items: [
@@ -17,7 +18,7 @@ const items: ITable = {
 const Home: React.FunctionComponent = () => (
   <main>
     <TopContent />
-    <section className={styles.wrapper}>
+    <OneColmun>
       <h2 className={styles.h2}>LIKES</h2>
       <div className={styles.linkCardWrapper}>
         <LikeCard
@@ -55,12 +56,12 @@ const Home: React.FunctionComponent = () => (
         </LikeCard>
         <div className={styles.linkCard} role="none" />
       </div>
-    </section>
+    </OneColmun>
 
-    <section className={styles.wrapper}>
+    <OneColmun>
       <h2 className={styles.h2}>HISTORY</h2>
       <Table {...items} />
-    </section>
+    </OneColmun>
   </main>
 );
 
