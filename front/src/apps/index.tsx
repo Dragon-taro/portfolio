@@ -7,6 +7,9 @@ import { configureStore } from "../redux/store";
 import { createBrowserHistory } from "history";
 import { Router, Switch, Route } from "react-router";
 import Home from "../pages/Home";
+import NewQuestionContainer from "../pages/NewQuestion/container";
+import QuestionsContainer from "../pages/Questions/container";
+import QuestoinContainer from "../pages/Question/container";
 
 const history = createBrowserHistory();
 const store = configureStore(history);
@@ -18,6 +21,9 @@ const App: React.FunctionComponent = () => (
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/contact" component={ContactContainer} />
+          <Route exact path="/questions/new" component={NewQuestionContainer} />
+          <Route exact path="/questions" component={QuestionsContainer} />
+          <Route exact path="/questions/:id" component={QuestoinContainer} />
         </Switch>
         <Footer />
       </React.Fragment>

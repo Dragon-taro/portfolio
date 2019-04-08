@@ -2,6 +2,7 @@ package controller
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/Dragon-taro/portfolio/server/model"
 	"github.com/Dragon-taro/portfolio/server/types"
@@ -44,4 +45,18 @@ func (a *AnswerController) Update(c echo.Context) error {
 	}
 
 	return c.JSON(http.StatusOK, "updated successfully")
+}
+
+// Show ...
+func (a *AnswerController) Show(c echo.Context) error {
+	questionID, err := strconv.Atoi(c.Param("questionID"))
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err)
+	}
+	answer, err := model.AnswerByQuestionID(a.DB, questionID)
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, err)
+	}
+
+	return c.JSON(http.StatusOK, answer)
 }

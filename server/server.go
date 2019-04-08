@@ -42,6 +42,9 @@ func main() {
 	api.POST("/answers", func(c echo.Context) error {
 		return answerController.Create(c)
 	})
+	api.GET("/answers/:questionID", func(c echo.Context) error {
+		return answerController.Show(c)
+	})
 
 	e.Logger.Fatal(e.Start(":8080"))
 }

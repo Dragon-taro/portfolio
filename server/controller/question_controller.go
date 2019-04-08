@@ -57,15 +57,5 @@ func (q *QuestionController) Show(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, err)
 	}
 
-	answer, err := model.OneAnswer(q.DB, question.ID)
-	if err != nil {
-		return c.JSON(http.StatusInternalServerError, err)
-	}
-
-	questionResp := types.QuestionRespone{
-		Answer:   answer,
-		Question: question,
-	}
-
-	return c.JSON(http.StatusOK, questionResp)
+	return c.JSON(http.StatusOK, question)
 }

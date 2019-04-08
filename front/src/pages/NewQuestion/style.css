@@ -1,0 +1,24 @@
+.contact {
+  padding: 90px 0;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.title {
+  color: #848484;
+}
+
+.field {
+  margin: 1rem 0;
+}
+
+.button {
+  width: 90%;
+  max-width: 200px;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.button button {
+  width: 100%;
+}
