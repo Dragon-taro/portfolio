@@ -3,9 +3,11 @@ import contactSaga from "./contact/sagas";
 import { History } from "history";
 import newQuestionSaga from "./newQuestion/sagas";
 import questionsSaga from "./questions/sagas";
+import questionSaga from "./question/sagas";
 
 export default function* rootSaga(history: History<any>) {
   yield fork(contactSaga);
   yield fork(newQuestionSaga);
   yield fork(questionsSaga);
+  yield fork(questionSaga);
 }

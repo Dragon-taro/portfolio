@@ -5,4 +5,5 @@ export interface RootState {
   contact: IContact;
   newQuestion: IQuestion;
   questions: IQuestions;
+  question: IQuestion;
 }

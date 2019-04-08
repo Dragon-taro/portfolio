@@ -7,11 +7,11 @@ import { getQuestionsFailure, getQuestionsSuccess } from "./actions";
 
 // genericもりもりの関数をcallに渡せへんのだるすぎ
 function getQuestions(params: IGet) {
-  return Get<IQuestion[], string>(params);
+  return Get<{}, IQuestion[]>(params);
 }
 
 function* sagaGetQuestions(_action: Action<{}>) {
-  const params: IGet<IQuestion[]> = {
+  const params: IGet<{}> = {
     path: "/api/questions"
   };
   const { resp, error }: IAPIResponse<IQuestion[]> = yield call(
