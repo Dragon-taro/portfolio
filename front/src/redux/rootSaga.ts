@@ -7,7 +7,7 @@ import questionSaga from "./question/sagas";
 import answerSaga from "./answer/sagas";
 
 export default function* rootSaga(history: History<any>) {
-  yield fork(contactSaga);
+  yield fork(contactSaga, history);
   yield fork(newQuestionSaga);
   yield fork(questionsSaga);
   yield fork(questionSaga);
