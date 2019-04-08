@@ -4,9 +4,9 @@ import {
   GET_QUESTION_FAILURE
 } from "./constants";
 import { Action, IDisaptchError } from "../../types/utils";
-import { IQuestion } from "../../types/question";
+import { IQuestion, IGetQuestion } from "../../types/question";
 
-export const getQuestion = (id: string): Action<{ id: string }> => ({
+export const getQuestion = (id: string): Action<IGetQuestion> => ({
   type: GET_QUESTION,
   payload: { id }
 });

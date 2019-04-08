@@ -2,7 +2,7 @@ import { takeEvery, call, put } from "redux-saga/effects";
 import { GET_QUESTION } from "./constants";
 import { Action, IAPIResponse, IGet } from "../../types/utils";
 import { Get } from "../api/fetch";
-import { IQuestion } from "../../types/question";
+import { IQuestion, IGetQuestion } from "../../types/question";
 import { getQuestionFailure, getQuestionSuccess } from "./actions";
 
 // genericもりもりの関数をcallに渡せへんのだるすぎ
@@ -10,7 +10,7 @@ function getQuestion(params: IGet) {
   return Get<{}, IQuestion>(params);
 }
 
-function* sagaGetQuestion(action: Action<{ id: string }>) {
+function* sagaGetQuestion(action: Action<IGetQuestion>) {
   const {
     payload: { id }
   } = action;

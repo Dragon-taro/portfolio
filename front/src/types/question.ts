@@ -9,6 +9,10 @@ export interface ISetQuestion {
   text: string;
 }
 
+export interface IGetQuestion {
+  id: string;
+}
+
 export interface IQuestions {
   questions?: IQuestion[];
   error?: string;
