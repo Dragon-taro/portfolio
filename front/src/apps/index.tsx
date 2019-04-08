@@ -10,6 +10,7 @@ import Home from "../pages/Home";
 import NewQuestionContainer from "../pages/NewQuestion/container";
 import QuestionsContainer from "../pages/Questions/container";
 import QuestoinContainer from "../pages/Question/container";
+import ThanksContact from "../pages/ThanksContact";
 
 const history = createBrowserHistory();
 const store = configureStore(history);
@@ -21,6 +22,7 @@ const App: React.FunctionComponent = () => (
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/contact" component={ContactContainer} />
+          <Route exact path="/contact/thanks" component={ThanksContact} />
           <Route exact path="/questions/new" component={NewQuestionContainer} />
           <Route exact path="/questions" component={QuestionsContainer} />
           <Route exact path="/questions/:id" component={QuestoinContainer} />
