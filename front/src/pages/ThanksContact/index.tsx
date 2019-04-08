@@ -10,6 +10,7 @@ const ThanksContact: React.FunctionComponent = () => (
       <h1>お問い合わせありがとうございます！</h1>
       <p>
         ご指定いただいた連絡先にこちらより折り返しご連絡させていただきます。
+        TODO: バリデーションの実装
       </p>
       <div className={styles.buttonWrapper}>
         <Link to="/">

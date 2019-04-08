@@ -42,7 +42,7 @@ func (q *QuestionController) Create(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, err)
 	}
 
-	return c.JSON(http.StatusCreated, "created")
+	return c.JSON(http.StatusCreated, question)
 }
 
 // Show ...

@@ -8,7 +8,7 @@ import answerSaga from "./answer/sagas";
 
 export default function* rootSaga(history: History<any>) {
   yield fork(contactSaga, history);
-  yield fork(newQuestionSaga);
+  yield fork(newQuestionSaga, history);
   yield fork(questionsSaga);
   yield fork(questionSaga);
   yield fork(answerSaga);
