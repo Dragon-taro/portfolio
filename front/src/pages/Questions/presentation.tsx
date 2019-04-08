@@ -5,6 +5,7 @@ import { Props } from "./types";
 import * as styles from "./style.css";
 import QuestionCard from "../../components/blocks/QuestionCard";
 import OneColmun from "../../components/layouts/OneColmun";
+import { Link } from "react-router-dom";
 
 export default class Questoins extends React.Component<Props> {
   componentDidMount() {
@@ -22,13 +23,14 @@ export default class Questoins extends React.Component<Props> {
           {questions.map(
             q =>
               q.text && (
-                <QuestionCard
-                  key={q.id}
-                  createdAt={q.createdAt}
-                  className={styles.quetionCard}
-                >
-                  {q.text}
-                </QuestionCard>
+                <Link to={`/questions/${q.id}`} key={q.id}>
+                  <QuestionCard
+                    createdAt={q.createdAt}
+                    className={styles.quetionCard}
+                  >
+                    {q.text}
+                  </QuestionCard>
+                </Link>
               )
           )}
         </OneColmun>

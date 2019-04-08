@@ -53,7 +53,7 @@ func (a *AnswerController) Show(c echo.Context) error {
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err)
 	}
-	answer, err := model.OneAnswerByQuestionID(a.DB, questionID)
+	answer, err := model.AnswerByQuestionID(a.DB, questionID)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err)
 	}

@@ -25,8 +25,8 @@ func UpdateAnswer(db *gorm.DB, a *types.Answer) error {
 	return nil
 }
 
-// OneAnswerByQuestionID ... find by question_id and return one answer
-func OneAnswerByQuestionID(db *gorm.DB, id int) (*types.Answer, error) {
+// AnswerByQuestionID ... find by question_id and return one answer
+func AnswerByQuestionID(db *gorm.DB, id int) (*types.Answer, error) {
 	answer := new(types.Answer)
 	result := db.First(&answer, "question_id=?", id)
 	if err := result.Error; err != nil {
