@@ -9,6 +9,9 @@ up:
 down:
 	@docker-compose down
 
+restart:
+	@make down && make build && make up
+
 logs:
 	@docker-compose logs -f --tail="all" 
 

@@ -36,10 +36,19 @@ export default class Contact extends React.Component<Props> {
     postContact(contact);
   }
 
+  isInvalid() {
+    const {
+      contact: { name, contactAddress, details }
+    } = this.props;
+
+    return !name.trim() || !contactAddress.trim() || !details.trim();
+  }
+
   render() {
     const {
       contact: { name, contactAddress, contactType, details }
     } = this.props;
+    const isInvalid = this.isInvalid();
     return (
       <div className={styles.contact}>
         <h1 className={styles.title}>Contact</h1>
@@ -49,6 +58,7 @@ export default class Contact extends React.Component<Props> {
           onChange={e => this.handleChange(e)}
           name="name"
           label="名前"
+          required
         />
         {/* ここのコンポーネントを切り出して各媒体で表示を切り替える */}
         <Select
@@ -58,6 +68,7 @@ export default class Contact extends React.Component<Props> {
           name="contactType"
           options={selectOptions}
           label="連絡方法"
+          required
         />
         <Input
           value={contactAddress}
@@ -65,6 +76,7 @@ export default class Contact extends React.Component<Props> {
           onChange={e => this.handleChange(e)}
           name="contactAddress"
           label="連絡先"
+          required
         />
         {/* お問い合わせ目的も入れたい */}
         <Textarea
@@ -73,9 +85,12 @@ export default class Contact extends React.Component<Props> {
           onChange={e => this.handleChange(e)}
           name="details"
           label="お問い合わせ内容"
+          required
         />
         <div className={styles.button}>
-          <Button onClick={() => this.handleSubmit()}>送信</Button>
+          <Button disabled={isInvalid} big onClick={() => this.handleSubmit()}>
+            送信
+          </Button>
         </div>
       </div>
     );

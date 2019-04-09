@@ -32,7 +32,7 @@ func (a *AnswerController) Create(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, err)
 	}
 
-	return c.JSON(http.StatusCreated, "created successfully")
+	return c.JSON(http.StatusCreated, answer)
 }
 
 // Update ...
@@ -44,7 +44,7 @@ func (a *AnswerController) Update(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, err)
 	}
 
-	return c.JSON(http.StatusOK, "updated successfully")
+	return c.JSON(http.StatusOK, answer)
 }
 
 // Show ...

@@ -35,6 +35,7 @@ export default class Question extends React.Component<Props> {
           </QuestionCard>
           <h2>Answer</h2>
           <p>{answer.text}</p>
+          {/* 404のときの表示 */}
         </OneColmun>
       </div>
     );

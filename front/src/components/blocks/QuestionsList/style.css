@@ -1,0 +1,14 @@
+.questionsList a {
+  color: #333;
+  text-decoration: none;
+}
+
+.questionCard {
+  margin: 16px 0;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.questionCard:hover {
+  transform: scale(1.02, 1.05);
+}
