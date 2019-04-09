@@ -41,7 +41,9 @@ export default class NewQuestion extends React.Component<Props> {
             name="text"
           />
           <div className={styles.button}>
-            <Button onClick={() => this.handleSubmit()}>質問する</Button>
+            <Button big onClick={() => this.handleSubmit()}>
+              質問する
+            </Button>
           </div>
         </OneColmun>
       </div>

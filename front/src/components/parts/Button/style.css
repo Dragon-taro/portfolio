@@ -8,6 +8,10 @@
   transition-duration: 0.3s;
 }
 
+.button.big {
+  font-size: 18px;
+}
+
 .button:hover {
   color: #fff;
   background-color: #444;

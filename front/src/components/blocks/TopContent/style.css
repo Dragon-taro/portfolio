@@ -9,7 +9,7 @@
 
 .topContent:after {
   content: "";
-  width: 150%;
+  width: 250%;
   height: 500px;
   background-color: #fafafa;
   display: block;

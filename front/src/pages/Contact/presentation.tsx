@@ -75,7 +75,9 @@ export default class Contact extends React.Component<Props> {
           label="お問い合わせ内容"
         />
         <div className={styles.button}>
-          <Button onClick={() => this.handleSubmit()}>送信</Button>
+          <Button big onClick={() => this.handleSubmit()}>
+            送信
+          </Button>
         </div>
       </div>
     );

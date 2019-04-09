@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { configureStore } from "../redux/store";
 import { createBrowserHistory } from "history";
 import { Router, Switch, Route } from "react-router";
-import Home from "../pages/Home";
+import HomeContainer from "../pages/Home/container";
 import NewQuestionContainer from "../pages/NewQuestion/container";
 import QuestionsContainer from "../pages/Questions/container";
 import QuestoinContainer from "../pages/Question/container";
@@ -20,7 +20,7 @@ const App: React.FunctionComponent = () => (
     <Provider store={store}>
       <React.Fragment>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={HomeContainer} />
           <Route exact path="/contact" component={ContactContainer} />
           <Route exact path="/contact/thanks" component={ThanksContact} />
           <Route exact path="/questions/new" component={NewQuestionContainer} />
