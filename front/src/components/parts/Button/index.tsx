@@ -4,6 +4,7 @@ import * as styles from "./style.css";
 interface IButton {
   onClick?(): void;
   big?: boolean;
+  disabled?: boolean;
 }
 
 const Button: React.SFC<IButton> = ({ children, big, ...props }) => (

@@ -4,6 +4,7 @@ export interface IFormElement<T> {
   className?: string;
   forId?: string;
   label?: string;
+  required?: boolean;
   onChange(e: React.ChangeEvent<T>): void;
 }
 

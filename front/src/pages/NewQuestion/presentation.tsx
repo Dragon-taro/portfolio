@@ -27,6 +27,8 @@ export default class NewQuestion extends React.Component<Props> {
     const {
       question: { text }
     } = this.props;
+    const isInvalid = !text.trim() && text.length < 140;
+
     return (
       <div className={styles.question}>
         <OneColmun>
@@ -41,7 +43,11 @@ export default class NewQuestion extends React.Component<Props> {
             name="text"
           />
           <div className={styles.button}>
-            <Button big onClick={() => this.handleSubmit()}>
+            <Button
+              big
+              disabled={isInvalid}
+              onClick={() => this.handleSubmit()}
+            >
               質問する
             </Button>
           </div>
