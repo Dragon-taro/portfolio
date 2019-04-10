@@ -18,6 +18,7 @@
   .linkCard {
     max-width: 290px;
     width: 100%;
+    padding: 10px;
   }
 }
 
