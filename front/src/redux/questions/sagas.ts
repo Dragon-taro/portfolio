@@ -13,10 +13,10 @@ function getQuestions(params: IGet) {
 
 function* sagaGetQuestions(action: Action<IGetQuestions>) {
   const {
-    payload: { page = 0 }
+    payload: { page } // わざとundefinedが入るようにしてる
   } = action;
   const params: IGet<{}> = {
-    path: `/api/questions?page=${page}`
+    path: `/api/questions?page=${page || 0}`
   };
   const { resp, error }: IAPIResponse<IQuestions> = yield call(
     getQuestions,
@@ -27,7 +27,7 @@ function* sagaGetQuestions(action: Action<IGetQuestions>) {
     yield put(getQuestionsFailure({ error: error.message }));
   } else {
     yield resp && put(getQuestionsSuccess(resp));
-    updateQueryString(`?page=${page}`);
+    page !== undefined && updateQueryString(`?page=${page}`);
   }
 }
 
