@@ -25,12 +25,12 @@ func NewQuestionController(db *gorm.DB) *QuestionController {
 
 // Index ... resposes of questions array
 func (q *QuestionController) Index(c echo.Context) error {
-	offset, err := strconv.Atoi(c.QueryParam("offset"))
+	page, err := strconv.Atoi(c.QueryParam("page"))
 	if err != nil {
-		offset = 0
+		page = 0
 	}
 
-	questions, err := model.AllQuestions(q.DB, offset)
+	questions, err := model.AllQuestions(q.DB, page)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err)
 	}

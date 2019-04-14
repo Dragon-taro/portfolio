@@ -16,7 +16,7 @@ function* sagaGetQuestions(action: Action<IGetQuestions>) {
     payload: { page = 0 }
   } = action;
   const params: IGet<{}> = {
-    path: `/api/questions?offset=${page}` // offset → pageにしたい
+    path: `/api/questions?page=${page}`
   };
   const { resp, error }: IAPIResponse<IQuestions> = yield call(
     getQuestions,
