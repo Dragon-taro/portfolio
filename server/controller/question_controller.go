@@ -62,5 +62,9 @@ func (q *QuestionController) Show(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, err)
 	}
 
+	if question == nil {
+		return c.JSON(http.StatusNotFound, "Cannot find a question.")
+	}
+
 	return c.JSON(http.StatusOK, question)
 }

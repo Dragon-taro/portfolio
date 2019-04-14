@@ -29,8 +29,10 @@ func UpdateAnswer(db *gorm.DB, a *types.Answer) error {
 func AnswerByQuestionID(db *gorm.DB, id int) (*types.Answer, error) {
 	answer := new(types.Answer)
 	result := db.First(&answer, "question_id=?", id)
-	// TODO: 404のときのエラーハンドリング
 	if err := result.Error; err != nil {
+		if gorm.IsRecordNotFoundError(err) {
+			return nil, nil
+		}
 		return nil, err
 	}
 

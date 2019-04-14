@@ -29,7 +29,10 @@ func AllQuestions(db *gorm.DB, offset int) (*types.Questions, error) {
 func OneQuestion(db *gorm.DB, id int) (*types.Question, error) {
 	question := new(types.Question)
 	result := db.First(&question, id)
-	if result.Error != nil {
+	if err := result.Error; err != nil {
+		if gorm.IsRecordNotFoundError(err) {
+			return nil, nil
+		}
 		return nil, result.Error
 	}
 

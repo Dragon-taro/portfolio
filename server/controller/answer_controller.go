@@ -58,5 +58,9 @@ func (a *AnswerController) Show(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, err)
 	}
 
+	if answer == nil {
+		return c.JSON(http.StatusNotFound, "Cannot find an answer.")
+	}
+
 	return c.JSON(http.StatusOK, answer)
 }
