@@ -4,16 +4,18 @@ import {
   GET_QUESTIONS_FAILURE
 } from "./constants";
 import { Action, IDisaptchError } from "../../types/utils";
-import { IQuestion } from "../../types/question";
+import { IQuestions, IGetQuestions } from "../../types/question";
 
-export const getQuestions = (): Action<{}> => ({
+export const getQuestions = (
+  payload: IGetQuestions = {}
+): Action<IGetQuestions> => ({
   type: GET_QUESTIONS,
-  payload: {}
+  payload: payload
 });
 
 export const getQuestionsSuccess = (
-  payload: IQuestion[]
-): Action<IQuestion[]> => ({
+  payload: IQuestions
+): Action<IQuestions> => ({
   type: GET_QUESTIONS_SUCCESS,
   payload: payload
 });

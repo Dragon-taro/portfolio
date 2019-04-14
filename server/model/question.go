@@ -6,14 +6,23 @@ import (
 )
 
 // AllQuestions ...
-func AllQuestions(db *gorm.DB) (*[]types.Question, error) {
-	questions := new([]types.Question)
-	result := db.Find(&questions)
+func AllQuestions(db *gorm.DB, offset int) (*types.Questions, error) {
+	q := new(types.Questions)
+	result := db.Order("created_at desc").Limit(10).Offset(offset * 10).Find(&q.Questions)
 	if result.Error != nil {
 		return nil, result.Error
 	}
 
-	return questions, nil
+	// inform client of total page count
+	var count int
+	result = db.Table("questions").Count(&count)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+
+	q.TotalPage = count/10 + 1
+
+	return q, nil
 }
 
 // OneQuestion ...

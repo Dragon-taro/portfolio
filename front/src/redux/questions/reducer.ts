@@ -4,7 +4,7 @@ import {
   GET_QUESTIONS_SUCCESS,
   GET_QUESTIONS_FAILURE
 } from "./constants";
-import { IQuestions, IQuestion } from "../../types/question";
+import { IQuestions } from "../../types/question";
 
 const initState: IQuestions = {
   loading: false
@@ -19,8 +19,7 @@ export const QuestionsReducer = (
     case GET_QUESTIONS:
       return { ...state, loading: true };
     case GET_QUESTIONS_SUCCESS:
-      const questions = payload as IQuestion[];
-      return { questions: questions, loading: false };
+      return { ...payload, loading: false };
     case GET_QUESTIONS_FAILURE:
       return { ...state, ...payload, loading: false };
     default:

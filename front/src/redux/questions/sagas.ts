@@ -1,20 +1,24 @@
 import { takeEvery, call, put } from "redux-saga/effects";
 import { GET_QUESTIONS } from "./constants";
-import { Action, IPost, IAPIResponse, IGet } from "../../types/utils";
+import { Action, IAPIResponse, IGet } from "../../types/utils";
 import { Get } from "../api/fetch";
-import { IQuestion } from "../../types/question";
+import { IQuestions, IGetQuestions } from "../../types/question";
 import { getQuestionsFailure, getQuestionsSuccess } from "./actions";
+import updateQueryString from "../../utils/updateQueryString";
 
 // genericもりもりの関数をcallに渡せへんのだるすぎ
 function getQuestions(params: IGet) {
-  return Get<{}, IQuestion[]>(params);
+  return Get<{}, IQuestions>(params);
 }
 
-function* sagaGetQuestions(_action: Action<{}>) {
+function* sagaGetQuestions(action: Action<IGetQuestions>) {
+  const {
+    payload: { page = 0 }
+  } = action;
   const params: IGet<{}> = {
-    path: "/api/questions"
+    path: `/api/questions?page=${page}`
   };
-  const { resp, error }: IAPIResponse<IQuestion[]> = yield call(
+  const { resp, error }: IAPIResponse<IQuestions> = yield call(
     getQuestions,
     params
   );
@@ -23,6 +27,7 @@ function* sagaGetQuestions(_action: Action<{}>) {
     yield put(getQuestionsFailure({ error: error.message }));
   } else {
     yield resp && put(getQuestionsSuccess(resp));
+    updateQueryString(`?page=${page}`);
   }
 }
 

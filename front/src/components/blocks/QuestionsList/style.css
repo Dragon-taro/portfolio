@@ -12,3 +12,35 @@
 .questionCard:hover {
   transform: scale(1.02, 1.05);
 }
+
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+.pagination li a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.pagination .selected a,
+.pagination .disabled a {
+  color: #888;
+}
+
+.pagination li.selected a:hover,
+.pagination li.disabled a:hover {
+  text-decoration: none;
+  cursor: default;
+}
