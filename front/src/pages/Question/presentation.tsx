@@ -21,21 +21,27 @@ export default class Question extends React.Component<Props> {
 
   render() {
     const { question, answer } = this.props;
+    const { question: q } = question;
 
     return (
       <div className={styles.questions}>
         <OneColmun>
           <h1>Question</h1>
-          <QuestionCard
-            key={question.id}
-            createdAt={question.createdAt}
-            className={styles.quetionCard}
-          >
-            {question.text}
-          </QuestionCard>
-          <h2>Answer</h2>
-          <p>{answer.text}</p>
-          {/* 404のときの表示 */}
+          {!question.error && q ? (
+            <React.Fragment>
+              <QuestionCard
+                key={q.id}
+                createdAt={q.createdAt}
+                className={styles.quetionCard}
+              >
+                {q.text}
+              </QuestionCard>
+              <h2>Answer</h2>
+              <p>{answer.text || "まだ回答がありません。"}</p>
+            </React.Fragment>
+          ) : (
+            "質問が見つかりませんでした。"
+          )}
         </OneColmun>
       </div>
     );

@@ -20,7 +20,7 @@ export const QuestionReducer = (
       return { ...state, loading: true };
     case GET_QUESTION_SUCCESS:
       const question = payload as IQuestion;
-      return { ...question, loading: false };
+      return { question, loading: false };
     case GET_QUESTION_FAILURE:
       return { ...state, ...payload, loading: false };
     default:
