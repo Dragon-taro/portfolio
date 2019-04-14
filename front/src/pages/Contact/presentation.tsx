@@ -8,6 +8,7 @@ import { ISetContact } from "../../types/contact";
 import Select from "../../components/parts/Form/Select";
 import Textarea from "../../components/parts/Form/TextArea";
 import Button from "../../components/parts/Button";
+import OneColmun from "../../components/layouts/OneColmun";
 
 // valueはenumの方が良さそう
 const selectOptions = [
@@ -50,7 +51,7 @@ export default class Contact extends React.Component<Props> {
     } = this.props;
     const isInvalid = this.isInvalid();
     return (
-      <div className={styles.contact}>
+      <OneColmun>
         <h1 className={styles.title}>Contact</h1>
         <Input
           value={name}
@@ -92,7 +93,7 @@ export default class Contact extends React.Component<Props> {
             送信
           </Button>
         </div>
-      </div>
+      </OneColmun>
     );
   }
 }
