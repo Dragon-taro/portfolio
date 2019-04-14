@@ -1,5 +1,5 @@
-import { IQuestions } from "../../types/question";
+import { IQuestions, IGetQuestions } from "../../types/question";
 
 export interface Props extends IQuestions {
-  getQuestions: () => void;
+  getQuestions: (payload?: IGetQuestions) => void;
 }

@@ -13,8 +13,13 @@ export interface IGetQuestion {
   id: string;
 }
 
+export interface IGetQuestions {
+  page?: number;
+}
+
 export interface IQuestions {
   questions?: IQuestion[];
+  totalPage?: number;
   error?: string;
   loading: boolean;
 }
