@@ -41,12 +41,17 @@ const QuestionsList: React.SFC<ILikeCard> = ({
           )
       )}
       {isPaging && totalPage && onPageChange && (
-        <ReactPaginate
-          pageCount={totalPage}
-          marginPagesDisplayed={3}
-          pageRangeDisplayed={3}
-          onPageChange={onPageChange}
-        />
+        <div className={styles.paginationWrapper}>
+          <ReactPaginate
+            containerClassName={styles.pagination}
+            disabledClassName={styles.disabled}
+            activeClassName={styles.selected}
+            pageCount={totalPage}
+            marginPagesDisplayed={3}
+            pageRangeDisplayed={3}
+            onPageChange={onPageChange}
+          />
+        </div>
       )}
     </div>
   );
