@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+  labels:
+    app: api
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: api
+  # これでいいのか？w
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  labels:
+    app: api
+spec:
+  selector:
+    matchLabels:
+      app: api
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        # docker hubにpushしたやつじゃないとエラーになるっぽい？
+        # 本番とテスト環境で変わってくるから環境変数にしたい
+        - image: docker.io/dragontaro/protfolio-api:1.0.0
+          name: api
+          env:
+            - name: GO_DB_HOST
+              value: mysql
+            - name: GO_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
+          ports:
+            - containerPort: 8080
+              name: api

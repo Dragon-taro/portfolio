@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    nginx.org/server-snippet: "proxy_ssl_verify off;"
+spec:
+  rules:
+    - host: minikube
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: front
+              servicePort: 3000
+          - path: /api
+            backend:
+              serviceName: api
+              servicePort: 8080
